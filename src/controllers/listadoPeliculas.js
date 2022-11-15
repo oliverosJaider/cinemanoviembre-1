@@ -1,4 +1,5 @@
 let peliculas=[
+    
     {
         nombre:"Hallowen la noche final",
         duracion:120,
@@ -22,45 +23,70 @@ let peliculas=[
     },
     {
         nombre: "Wakanda forever",
-        duracion:95,
+        duracion:120,
         poster:"https://firebasestorage.googleapis.com/v0/b/personalsoft-a1bec.appspot.com/o/wakanda.jpg?alt=media&token=5716b762-e877-4512-99ce-4e09cce7f690"
     },
     {
-        nombre: "Wakanda forever",
-        duracion:95,
-        poster:"https://firebasestorage.googleapis.com/v0/b/personalsoft-a1bec.appspot.com/o/wakanda.jpg?alt=media&token=5716b762-e877-4512-99ce-4e09cce7f690"
+        nombre: "AMSTERDAM",
+        duracion:115,
+        poster:"https://firebasestorage.googleapis.com/v0/b/cinemajaider.appspot.com/o/AMSTERDAMNUEVO1.jpg?alt=media&token=502ffa4e-1c4b-4386-8e5a-1d3e59dc1fac"
     },
     {
-        nombre: "Wakanda forever",
-        duracion:95,
-        poster:"https://firebasestorage.googleapis.com/v0/b/personalsoft-a1bec.appspot.com/o/wakanda.jpg?alt=media&token=5716b762-e877-4512-99ce-4e09cce7f690"
+        nombre: "la mujer",
+        duracion:85,
+        poster:"https://firebasestorage.googleapis.com/v0/b/cinemajaider.appspot.com/o/LA%20MUJER.jpg?alt=media&token=d2b8a963-dcb6-491d-b027-a5daeb72360a"
     },
     {
-        nombre: "Wakanda forever",
-        duracion:95,
-        poster:"https://firebasestorage.googleapis.com/v0/b/personalsoft-a1bec.appspot.com/o/wakanda.jpg?alt=media&token=5716b762-e877-4512-99ce-4e09cce7f690"
+        nombre: "sonrie1",
+        duracion:135,
+        poster:"https://firebasestorage.googleapis.com/v0/b/cinemajaider.appspot.com/o/SONRIE1.jpg?alt=media&token=759d87fa-6b61-4ecb-aa85-4060fda90fdd"
     },
     {
-        nombre: "Wakanda forever",
-        duracion:95,
-        poster:"https://firebasestorage.googleapis.com/v0/b/personalsoft-a1bec.appspot.com/o/wakanda.jpg?alt=media&token=5716b762-e877-4512-99ce-4e09cce7f690"
+        nombre: "los reyes del mundo",
+        duracion:105,
+        poster:"https://firebasestorage.googleapis.com/v0/b/cinemajaider.appspot.com/o/LOS%20REYES%20DEL%20MUNDO1.jpg?alt=media&token=754eeeff-d4e3-4776-862b-53f4ef3d077c"
     },
     {
-        nombre: "Wakanda forever",
-        duracion:95,
-        poster:"https://firebasestorage.googleapis.com/v0/b/personalsoft-a1bec.appspot.com/o/wakanda.jpg?alt=media&token=5716b762-e877-4512-99ce-4e09cce7f690"
+        nombre: "la jauria",
+        duracion:90,
+        poster:"https://firebasestorage.googleapis.com/v0/b/cinemajaider.appspot.com/o/LA%20JAURIA.jpg?alt=media&token=0dad90d1-1e92-49da-8fd6-956a95b50936"
     }
 ]
+//creamos una referencia al espacio html donde queremos hacer el render(pintar etiquetas)
+let etiquetafila=document.getElementById("fila")
 
-let fila=document.getElementById("fila")
+/*si ya tengo datos que normalmente llegan al front 
+como un arreglo de objetos debemos recorrer y depurar
+dicha informacion */
 
+
+//para pintar la informacion de cada pelicula debemos 
+//aplicar una tecnica conocida como traversing
+//traversing=crear etiquetas de html desde js
 peliculas.forEach(function(pelicula){
-    console.log(pelicula.poster)
 
-    let foto=document.createElement("img")
-    foto.src=pelicula.poster
-    foto.classList.add("img-fluid","w-100")
+    let columna=document.createElement("div")
+    columna.classList.add("col")
 
-    fila.appendChild(foto)
+    let tarjeta=document.createElement("div")
+    tarjeta.classList.add("card","h-100","shadow")
 
+    let poster=document.createElement("img")
+    poster.classList.add("img-fluid","w-100")
+    poster.src=pelicula.poster
+
+    let nombre=document.createElement("h3")
+    nombre.classList.add("text-center","fw-bold")
+    nombre.textContent=pelicula.nombre
+
+    let duracion=document.createElement("h4")
+    duracion.classList.add("text-start")
+    duracion.textContent="duracion: "+pelicula.duracion+"min"
+
+    //jerarquia de etiquetas(padres e hijos)
+    etiquetafila.appendChild(columna)
+    columna.appendChild(tarjeta)
+    tarjeta.appendChild(poster)
+    tarjeta.appendChild(nombre)
+    tarjeta.appendChild(duracion)
 })
