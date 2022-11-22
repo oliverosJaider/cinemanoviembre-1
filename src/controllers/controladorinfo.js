@@ -9,7 +9,13 @@ let etiquetaNombre=document.getElementById("nombrePelicula")
 etiquetaNombre.textContent=peliculaConsultadaEnMemoria.titulo
 
 let etiquetaDuracion=document.getElementById("duracion")
-etiquetaDuracion.textContent=peliculaConsultadaEnMemoria.duracion
+etiquetaDuracion.textContent=peliculaConsultadaEnMemoria.duraccion
 
 let etiquetaSinopsis=document.getElementById("sipnosis")
 etiquetaSinopsis.textContent=peliculaConsultadaEnMemoria.sinopsis
+
+let etiquetaimagendos=document.getElementById("imagenpeliculados")
+etiquetaimagendos.src=peliculaConsultadaEnMemoria.imagendos
+
+let etiquetagenero=document.getElementById("genero")
+etiquetagenero.textContent=peliculaConsultadaEnMemoria.genero
